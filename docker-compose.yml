@@ -8,5 +8,12 @@ services:
     volumes:
       - ./work:/work
       - ./script:/script:ro
+    environment:
+      - SPEED=${SPEED:-1.0}
+      - FFMPEG_THREADS=${FFMPEG_THREADS:-0}
+      - VIDEO_CRF=${VIDEO_CRF:-28}
+      - VIDEO_PRESET=${VIDEO_PRESET:-slow}
+      - AUDIO_BITRATE=${AUDIO_BITRATE:-96k}
+      - DISABLE_AUDIO=${DISABLE_AUDIO:-0}
     restart: "no"
     entrypoint: ["/bin/bash", "-lc", "chmod -R a+rwX /work && bash /script/convert_webm_to_mp4.sh"]
