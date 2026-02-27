@@ -1,0 +1,12 @@
+services:
+  ffmpeg:
+    image: ffmpeg
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /work
+    volumes:
+      - ./work:/work
+      - ./script:/script:ro
+    restart: "no"
+    entrypoint: ["/bin/bash", "/script/convert_webm_to_mp4.sh"]
