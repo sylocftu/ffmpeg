@@ -9,4 +9,4 @@ services:
       - ./work:/work
       - ./script:/script:ro
     restart: "no"
-    entrypoint: ["/bin/bash", "-lc", "chmod -R a+rwX /work && /script/convert_webm_to_mp4.sh"]
+    entrypoint: ["/bin/bash", "-lc", "chmod -R a+rwX /work && bash /script/convert_webm_to_mp4.sh"]
